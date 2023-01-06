@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+          }
+          
+          li {
+            float: left;
+          }
+         
+          li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+          
+          li a:hover:not(.active) {
+            background-color: #111;
+          }
+         
+          .active {
+            background-color: #04AA6D;
+          }
+          body{
+            background-image: url("{% static 'Untitled design.png' %}");
+            background-size: 100%;
+          }
+          input{
+            text-align:center;
+          }
+          .middle{
+            margin-top: 30px;
+          }
+          h1{
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            font-size: 5em;
+            margin-bottom: 20px;
+          }
+          h3{
+            text-align: center;
+            color: white;
+          }
+          .crop{
+            border: radius 4px;
+          }
+          input[type=text], select {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #579BB1;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #579BB1;
+            opacity: 0.4;
+          }
+          
+          input[type=submit], select {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #579BB1;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #579BB1;
+            color:white;
+            opacity: 0.6;
+          }
+          ::placeholder{
+            color: white;
+          }
+          p{
+            color:white;
+            text-align:center;
+          }
+          #abt{
+            margin-top: 300px;
+          }
+          #cnt{
+            margin-top: 400px;
+            margin-bottom: 200px;
+          }
+          .logo{
+            position: absolute;
+            height: 45px;
+            width: 50px;
+            right: 10px;
+          }
+          
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#cnt">Contact</a></li>
+            <li><a href="#abt">About</a></li>
+            <li><img src="FARMOLOGY.jpg" class="logo" alt="logo"></li>
+        </ul>
+        
+    </div>
+    <div id="home">
+       
+        <h1>FARMOLOGY</h1>
+        <h3>-Know what's best to grow </h3>
+    </div>
+    <div class="middle">
+        <form action="/result/" method="post" > {% csrf_token %}
+            <center>
+              <input type="text" class="crop" placeholder= "Commodity_name" name="commodity_name" ><br>
+              <input type="text" class="crop" placeholder= "State" name="state" ><br>
+              <input type="text" class="crop" placeholder= "District" name="district" ><br>
+              <input type="text" class="crop" placeholder= "Market" name="market" ><br>
+              <input type="text" class="crop" placeholder= "Month_column" name="month_column" ><br>
+              <input type="text" class="crop" placeholder= "Season_names" name="season_names" ><br>
+              <input type="text" class="crop" placeholder= "Day" name="day" ><br>
+              <input type="submit" value="Predict">
+            </center>
+        </form>
+    </div>
+    <div id="abt">
+        <h1>About Us</h1>
+        <p>Agriculture is the primary sector of India's economy.Utilising all possible technologies to develop agriculture can uplift the economy along with the financial status of the framers 
+          Our application FARMOLOGY - know what's best to grow helps framers by predicting the crop prize in the future thus helping them to reach maximum profit possible.Our application aims adding more and more features in the future , aiming to modernize the farming.</p>
+
+           <br><br><p>
+            The target community of our problem statement is Farmers.They can use our application for the following services. <br> 
+
+1. Prediction of future market trend of a crop on daily basis. <br>
+2. Suggestion for what to grow based on upcoming weather conditions. <br>
+3. Suggestion of pesticides by taking the picture input of a diseased crop. <br>
+4. To know how technology can be applied in agriculture  </p>
+            
+           <br><br><p>And other features which we are aiming to achieve as a future scope. Availing all these in one user friendly platform reaches it to the people of all levels.
+            For now we are mainly focusing on building a price prediction model of a crop.
+            Although many of these solutions are provided by Google,it's not that ease of use and not available in one platform. So we are aiming at integrating all these in one ,thus modernizing agriculture and reaching out all possible technologies to farmers.</p>
+        
+    </div>
+    <div id="cnt">
+        <h1>Contact Us</h1>
+        <form action="">
+            <center><input type="text" class="crop" placeholder= "Name" ><br><br>
+            <input type="text" class="crop" placeholder="Email"><br><br>
+            <input type="text" placeholder="Suggestions and queries"><br><br>
+            <a href="mailto:puneeth2417@gmail.com"><input type="submit" value="Send Us"></a><br></center>
+        </form>
+    </div>
+    
+    
+</body>
+</html>
